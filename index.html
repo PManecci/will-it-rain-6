@@ -22,21 +22,20 @@
         </div>
         <main>
         <div class="container-fluid">
-            <div class="row align-items-start">
             <!--LEFT COLUMN: CITY SEARCH-->
-                <div class="col col-4">
+                <div class="col">
                     <form class="border" id="city-search">
                         <h4>Search city name below to see the weather:</h4>
-                        <input class="form-input" id="city-name-input" type="text"/>
+                        <input class="form-input" id="city" type="text"/>
                         <button class="btn btn-outline-info btn-lg" type="submit">Search</button>
                     </form>
                     <div class="border" id="search-history"></div>
                 </div>
             <!--RIGHT COLUMN: CURRENT DAY'S WEATHER-->
-                <div class="col col-8">
+                <div class="col">
                     <div id="current-weather">
                         <h2 id="city-name"></h2>
-                        <div id="current-weather-display"></div>
+                        <div id="current-weather-display" class="list-group"><div>
                     </div>
                 </div>
             </div>
