@@ -11,7 +11,6 @@ var forecastDisplay = document.querySelector("#forecast-display");
 var pastSearchButtons = document.querySelector("#search-history");
 
 //Search Form
-
 var searchForm = function(event) {
     event.preventDefault();
     var city = cityInput.value.trim();
@@ -32,7 +31,7 @@ var saveSearch = function() {
     localStorage.setItem("cityNames", JSON.stringify(cityNames));
 };
 
-//Fetch Data from Open Weather
+//Fetch Current Weather
 var getCurrentWeather = function(city) {
     var apiKey = "8e80a0f98579eb445d9f829dcd002983";
     var apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
@@ -44,7 +43,7 @@ var getCurrentWeather = function(city) {
     });
 };
 
-//Display Data
+//Display Current Weather
 var displayWeather = function(weatherCity, searchCity) {
 
     //Clear Search
@@ -88,8 +87,7 @@ var displayWeather = function(weatherCity, searchCity) {
     getUvIndex (lat,lon)
 };
 
-// get uv index function
-
+//Fetch UV Index
 var getUvIndex = function(lat,lon) {
     var apiKey = "8e80a0f98579eb445d9f829dcd002983";
     var apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
@@ -100,7 +98,7 @@ var getUvIndex = function(lat,lon) {
         });
     });
 }
-// uv index function
+//Display UV Index w/ Coloring
 var displayUvIndex = function(index){
     var uvIndex = document.createElement("div");
     uvIndex.textContent = "UV Index is "
@@ -164,7 +162,13 @@ var displayForecast = function(weather) {
     var forecastHumidityEl=document.createElement("span");
     forecastHumidityEl.classList = "card-body text-center";
     forecastHumidityEl.textContent = "humidity: " + dailyForecast.main.humidity + "%"
-    forecastEl.appendChild(forecastHumEl);
+    forecastEl.appendChild(forecastHumidityEl);
+
+    // weather element
+    var forecastDescriptionEl = document.createElement("span");
+    forecastDescriptionEl.classList = "card-body text-center";
+    forecastDescriptionEl.textContent = "weather conditions: " + dailyForecast.weather[0].description;
+    forecastEl.appendChild(forecastDescriptionEl);
 
     // wind speed
     var forecastWindEl = document.createElement("span");
