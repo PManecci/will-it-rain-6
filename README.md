@@ -5,7 +5,7 @@
 A simple and clean weather dashboard that can be used to quickly compare current weather and forecasts in multiple cities. 
 
 
-![screenshot](assets/images/will-it-rain-screenshot)
+![screenshot](assets/images/will-it-rain-screenshot.png)
 
 
 ## Table Of Contents
